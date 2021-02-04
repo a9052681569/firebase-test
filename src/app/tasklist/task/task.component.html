@@ -1,0 +1,16 @@
+<mat-card-content class="task__value">
+	<ng-container>
+		<p>{{task.name}}</p>
+		<p>{{task.comment}}</p>
+	</ng-container>
+</mat-card-content>
+
+<div class="task__actions">
+	<button mat-icon-button (click)="edit()">
+		<mat-icon>edit</mat-icon>
+	</button>
+	<button mat-icon-button (click)="delete()">
+		<mat-icon>delete</mat-icon>
+	</button>
+</div>
+<mat-divider></mat-divider>

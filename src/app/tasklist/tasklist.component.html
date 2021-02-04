@@ -1,0 +1,28 @@
+<div class="tasklist__header">
+	<div>{{list.name}}</div>
+	<div>
+		<button mat-icon-button (click)="add()">
+			<mat-icon>add</mat-icon>
+		</button>
+		<button mat-icon-button (click)="delete()">
+			<mat-icon>delete</mat-icon>
+		</button>
+	</div>
+
+</div>
+
+
+<mat-card class="tasklist"
+		  *ngIf="displayedTaskList | async as dTasks"
+		  cdkDropList
+		  [id]="list.name"
+		  [cdkDropListData]="dTasks"
+		  class="example-list"
+		  (cdkDropListDropped)="drop($event)">
+	<app-task *ngFor="let task of dTasks"
+			  [task]="task"
+			  (deleteTask)="deleteDask($event)"
+			  (editTask)="editTask($event)"
+			  cdkDrag>
+	</app-task>
+</mat-card>

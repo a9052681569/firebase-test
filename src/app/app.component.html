@@ -1,0 +1,15 @@
+<form (ngSubmit)="add(listName.value)">
+	<mat-form-field>
+		<mat-label>имя списка</mat-label>
+		<input matInput #listName>
+	</mat-form-field>
+	<button mat-button>add</button>
+</form>
+
+<div class="tasklist-container" cdkDropListGroup>
+	<app-tasklist *ngFor="let list of displayedLists | async"
+				  [list]="list"
+				  (removeList)="removeList($event)">
+	</app-tasklist>
+</div>
+
